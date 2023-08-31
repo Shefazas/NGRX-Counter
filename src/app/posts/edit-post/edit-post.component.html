@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12">
+            <h3>Update Post</h3>
+            <hr />
+
+            <form action="" [formGroup]="postForm" (ngSubmit)="onUpdatePost()">
+                <div class="mb-3">
+                    <label for="">Title</label>
+                    <input formControlName="title" type="text" class="col-md-12 form-comtrol">
+                    <div *ngIf="postForm.get('title')?.touched && !postForm.get('title')?.valid">
+                    <div *ngIf="postForm.get('title')?.errors?.['required']">
+                        Title is required
+                    </div>
+                    <div *ngIf="postForm.get('title')?.errors?.['minlength']">
+                        Title should be minimum 6 characters
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="">Description</label>
+                    <textarea formControlName="description" class="col-md-12 form-comtrol"></textarea>
+                   <div>{{ showDescriptionErrors() }}</div>
+                </div>
+                <div class="my-3">
+                    <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Update Post</button>
+                </div>
+            </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div>
+    <div class="my-3">{{text$|async}}</div>
+    <input type="text" placeholder="Enter Value" [(ngModel)]="value" />
+    <button (click)="onAdd()" class="btn btn-primary">Add to counter</button>
+</div>
+
+<div>
+    <button class="btn btn-primary" (click)="onChangeText()">Change Channel</button>
+</div>
